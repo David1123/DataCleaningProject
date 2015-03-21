@@ -1,0 +1,41 @@
+---
+title: "Data Cleaning Project - Readme"
+author: "David Freund"
+date: "21 March 2015"
+output: html_document
+---
+
+The UCI HAR Dataset was downloaded from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
+
+The script run_analysis.R does several things when run with the UCI HAR Dataset folder in the current working directory:
+
+It reads in the relevant files from the dataset:
+activity_labels.txt
+features.txt
+subject_test.txt
+X_test.txt
+y_test.txt
+subject_train.txt
+X_train.txt
+y_train.txt
+
+The relevant activity name is then matched from activitylabels data to the y data.
+
+Then a new dataframe is generated from all corrsponding test and train, combining the subject, y, and x data.
+
+Then the test and train dataframes are merged, and the variables are named according to the features text file. Dataframe - 10299 obs of 563 var.
+
+Next, this dataframe was subsetted, keeping only the subject, activity, mean and standard deviation measurents. Dataframe - 10299 obs of 68 var.
+
+This was acheived by searching for the strings "mean()" and "std()" - ensuring that variables such as meanfreq() were discarded.
+
+The column names were tidied up by coercing them to R valid names, and removing various characters for typability (such as . ( ) - ). Mean and Std where also capitalised to improve readability.
+
+Then, this data was summarised, by averaging all observations for each particular instance of subject and activity. Dataframe - 180 obs of 68 var.
+
+run_analysis.R script then outputs this tidy data set to a text file - TideData.txt
+
+
+
+
+

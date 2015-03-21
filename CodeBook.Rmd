@@ -1,0 +1,22 @@
+---
+title: "CodeBook"
+author: "David Freund"
+date: "21 March 2015"
+output: html_document
+---
+
+The TidyData.txt is cleaned and proccessed data from the UCI HAR Dataset.
+
+The tidy data set returned is a dataframe with 68 variables (columns) and 180 observations (rows). 
+
+Each row corrosponds to a subject (1,2,17, etc) and activity (walking etc) and the means of various variables of interest.
+
+The variables of interest were chosen from the original data by filtering by the strings "mean()" and "std()".
+
+Each variable corrosponds to an average of a mean or a standard distribution. For example:
+
+tBodyGyroMeanY - in the time domain, the mean of the BodyGyro in the Y dimension.
+
+All the variables (other than subject and activity) are normalised on [-1,1].
+
+See the original README.txt in the UCI HAR Dataset for more information on the experiment design and data methodolgy.
